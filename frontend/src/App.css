@@ -1,0 +1,12 @@
+.overflow-y-scroll::-webkit-scrollbar-button {
+    display: none;
+}
+.overflow-y-scroll::-webkit-scrollbar-button {
+    display: none;
+}
+.overflow-y-scroll::-webkit-scrollbar-button:horizontal {
+    display: none;
+}
+.overflow-y-scroll::-webkit-scrollbar-button:vertical {
+    display: none;
+}
