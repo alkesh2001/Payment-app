@@ -11,7 +11,6 @@ const generateToken = async (userId)=>{
         }
 
         const user  = await User.findById(userId)
-        console.log(user , 'this data from user')
 
         if (!user) {
             throw new Error("User not found");
@@ -20,7 +19,6 @@ const generateToken = async (userId)=>{
         const accessToken = user.generateAccessToken()
         
         await user.save({validateBeforeSave : false})
-        console.log(accessToken)
         return { accessToken}
 
     } catch (error) {
@@ -62,9 +60,7 @@ const registerUser = asyncHandler(async (req, res) =>{
  
     return res.status(200).json({user , accessToken , message : "user Registered successfully"})
     
-
 })
-
 
 const loginUser = asyncHandler(async(req, res)=>{
     const { email , password} = req.body

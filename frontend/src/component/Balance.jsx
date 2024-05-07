@@ -11,7 +11,7 @@ function Balance() {
       try {
            const res = await axios.get('http://localhost:8000/api/v1/account/balance' ,{
               headers : {
-                Authorization : "Bearer" + localStorage.getItem( "signUptoken" || "loginToken" )
+                Authorization : "Bearer" + localStorage.getItem(   "loginToken" || "signUptoken" )
           
               }
            })

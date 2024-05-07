@@ -51,7 +51,7 @@ function SendMoney() {
                       },
                       {
                         headers: {
-                          Authorization : "Bearer" + localStorage.getItem("loginToken" || "signUptoken")
+                          Authorization : "Bearer" + localStorage.getItem("loginToken")
                         }
                       }
                       ) ;

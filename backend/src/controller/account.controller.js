@@ -9,11 +9,8 @@ const accountFetch = asyncHandler(async(req,res) =>{
     if(!userId){
         return res.status(401).json({message : "userId is not defind ot unathorized"})
     }
-    const account = await Account.findOne({
-        userId
-    })
+    const account = await Account.findOne({ userId })
 
-    console.log(account  , "this data when account fetch")
     if(!account){
         return res  
               .status(404)
@@ -38,9 +35,10 @@ const transfar = asyncHandler(async (req,res)=>{
  session.startTransaction();
 
   const { amount , to } = req.body;
+  
+  const userId = await req.user._id
 
-  const account = await Account.findOne({userId : req._id}).session(session);
-  console.log(account , "when transfer money my account log")
+  const account = await Account.findOne({userId : userId}).session(session);
 
 
   if(!account || account.balance < amount){
@@ -52,21 +50,21 @@ const transfar = asyncHandler(async (req,res)=>{
   }
 
   const toAccount = Account.findOne({userId : to}).session(session);
-  console.log(toAccount , "when transfer money other user account log")
 
   if(!toAccount){
     await session.abortTransaction();
     return res 
           .status(404)
           .json({
-            message : "user To account not found "
+            message : "user account not found "
           })
   }
   
   await Account.updateOne(
-    {userId : req.userId},
+    {userId : userId},
     {$inc : {balance  : -amount}}
   ).session(session)
+
   await Account.updateOne(
     {userId : to},
     {$inc : {balance : amount}}

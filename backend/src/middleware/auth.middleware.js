@@ -7,8 +7,6 @@ export const verifyJWT = asyncHandler( async(req , res ,next) =>{
    try {
      const token = await req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer","")
       
-     console.log("Received token:", token);
- 
      if(!token){
          return res
                .status(401)
@@ -27,6 +25,7 @@ export const verifyJWT = asyncHandler( async(req , res ,next) =>{
       
      req.user = user;
      next()
+     
    } catch (error) {
       return res
              .status(401)

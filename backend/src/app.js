@@ -14,12 +14,10 @@ app.use(express.urlencoded({extended : true , limit : "16kb"}))
 app.use(cookieParse())
 
 
-// import userRouter from "./routes/user.routes.js"
 import userRouter from './routes/user.routes.js'
 import accountRouter from './routes/account.routes.js'
 
 app.use("/api/v1/users" ,  userRouter)
 app.use("/api/v1/Account" , accountRouter)
-// app.use("/api/v1/users" ,  accountRouter)
 
 export {app}
