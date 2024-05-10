@@ -22,12 +22,12 @@ function Login() {
             const response = await axios.post('http://localhost:8000/api/v1/users/login' , {email , password})
             console.log(response)
          
-             localStorage.setItem("loginToken" , response.data.accessToken)
+             localStorage.setItem("accessToken" , response.data.accessToken)
 
              if(response.status === 200){
                 const currentUser = await axios.get('http://localhost:8000/api/v1/users/current-User' , {
                     headers : {
-                        Authorization : "Bearer" + localStorage.getItem("loginToken")
+                        Authorization : "Bearer" + localStorage.getItem("accessToken")
                     }
                 })
                 console.log(currentUser)

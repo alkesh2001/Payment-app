@@ -19,7 +19,7 @@ function Home() {
         try {
                     const response = await axios.get('http://localhost:8000/api/v1/users/getAllUser' , {
                       headers : {
-                        Authorization : "Bearer" + localStorage.getItem("loginToken")
+                        Authorization : "Bearer" + localStorage.getItem("loginToken" || "signUptoken")
                   
                       }
                     })

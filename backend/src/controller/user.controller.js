@@ -56,7 +56,7 @@ const registerUser = asyncHandler(async (req, res) =>{
         balance : 10000
     })
 
-    const {accessToken} = await generateToken(user._id)
+    const {accessToken} = await generateToken(userId)
  
     return res.status(200).json({user , accessToken , message : "user Registered successfully"})
     
@@ -154,7 +154,7 @@ const getCurrentUser = asyncHandler(async (req, res)=>{
 
 const getAllUser = asyncHandler(async (req, res) =>{
     
-    const user = await User.find({ _id : { $ne : req.user._id}})
+    const user = await User.find({ _id : { $ne:  req.user._id}})
 
     if(!user){
         return res
