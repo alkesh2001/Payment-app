@@ -9,18 +9,9 @@ function Balance() {
     const getBalance = async()=>{
       
       try {
-          
-        let tokenKey = "loginToken"
-        
-        const loginToken = localStorage.getItem("loginToken");
-        if(!loginToken){
-          tokenKey = "signUptoken"
-        }
-          // const Tokenkey  = localStorage.getItem("loginToken") ? "loginToken " : "signUptoken " ;
-
            const res = await axios.get('http://localhost:8000/api/v1/account/balance' ,{
               headers : {
-                Authorization : `Bearer` + localStorage.getItem('loginToken')
+                Authorization : `Bearer` + localStorage.getItem('accessToken')
           
               }
            })

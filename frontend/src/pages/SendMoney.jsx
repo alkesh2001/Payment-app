@@ -19,7 +19,7 @@ function SendMoney() {
   console.log(name)
 
   return (
-    <div className='rounded-lg bg-white w-96 h-1/3'>
+    <div className='rounded-lg bg-white px-4 w-80  md:w-96 h-1/3'>
       <div className='py-7'>
          <div className='flex justify-center py-2 font-medium text-lg  text-green-500'>
            Send Money 
@@ -51,7 +51,7 @@ function SendMoney() {
                       },
                       {
                         headers: {
-                          Authorization : "Bearer" + localStorage.getItem("loginToken")
+                          Authorization : "Bearer" + localStorage.getItem("accessToken")
                         }
                       }
                       ) ;

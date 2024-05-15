@@ -36,7 +36,7 @@ function SignUp() {
     } 
 
   return (
-    <div className='py-4 rounded-lg bg-white w-96 h-1/3 '>
+    <div className='py-4 rounded-lg bg-white w-80 md:w-96 h-1/3 '>
         <div className='text-lg flex justify-center font-medium'> 
             Welcome to Payment App
         </div>

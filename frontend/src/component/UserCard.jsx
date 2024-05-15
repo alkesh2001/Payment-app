@@ -17,7 +17,7 @@ function UserCard({item}) {
       </div>
       <div className=''>
            <Botton   
-           className="font-medium bg-gray-800 px-4 py-2  rounded-lg"
+           className="font-medium  text-sm md:text-md  bg-gray-800 px-3 py-2 md:px-4 md:py-2  rounded-lg"
            onClick={()=>  { navigate('/sendMoney?id=' + item._id + "&name=" + item.username)}}
               value={"send Money"}
            />

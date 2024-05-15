@@ -46,7 +46,7 @@ function Login() {
     console.log(data , 'current data not add in state')
 
   return (
-    <div className='pt-4 rounded-lg bg-white w-96 h-96'>
+    <div className='pt-4 rounded-lg bg-white w-80 md:w-96 h-96'>
         <div className='text-lg flex justify-center font-medium'> 
             Welcome to Payment App
         </div>
